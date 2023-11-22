@@ -4,8 +4,9 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  outline: 2px solid #570a64;
-  box-shadow: 2px 2px 5px white;
+  outline: 2px solid #9547a2;
+  box-shadow: 2px 2px 5px #6969ec;
+  border-radius: 5px;
 }
 
 body {
@@ -15,13 +16,14 @@ body {
   min-height: 100vh;
   background-color: #222;
   cursor: url(/cursor.cur), pointer;
+  user-select: none;
 }
 .calculator-app {
-  background-color: #000;
+  background-color: #e2f069d0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1em;
-  padding: 1.5em 1em;
+  padding: 2.5em 1.5em;
 }
 
 .display {
@@ -46,34 +48,43 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: orange;
-  font-size: 1.25rem;
+  background-color: #7e2aa556;
+  font-size: 1.5rem;
   font-family: monospace;
-  color: white;
+  color: #ffffff;
+  font-weight: 900;
   text-shadow: 1px 1px 5px black;
   transition: all 0.25s ease-in-out;
+  /* background-image: linear-gradient(
+    75deg,
+    #ffa60088,
+    #ffff00a1,
+    #95cf95b4,
+    #7e2aa556
+  ); */
 }
 
-.keys:is(:active, :hover, :focus) {
+.keys:nth-of-type(2n) {
+  background-color: #00ffc8a1;
+}
+
+.keys:is(:hover, :focus) {
   background-color: mediumseagreen;
-  box-shadow: inset 1px 0px 2px white;
   cursor: pointer;
-  scale: 0.9;
 }
 
 .operator {
-  background-color: blueviolet;
+  background-color: #e22bca;
 }
 
-.operator:is(:active, :hover, :focus) {
+.operator:is(:hover, :focus) {
   background-color: rgb(40, 87, 206);
   box-shadow: inset 1px 0px 2px white;
   cursor: pointer;
-  scale: 0.9;
 }
 
 #clear.clear {
-  background-color: greenyellow;
+  background-color: #2fffff;
   grid-column: 3/-1;
   width: auto;
 }
@@ -83,8 +94,15 @@ body {
 }
 
 #clear:is(:active) {
-  background-color: #4dff00;
+  background-color: #87ebc6ba;
   box-shadow: inset 1px 0px 2px white;
   cursor: pointer;
+  scale: 0.9;
+}
+
+.keys:active,
+.operator:active,
+#clear:active {
+  box-shadow: inset 3px 3px 5px black;
   scale: 0.9;
 }
