@@ -1,53 +1,38 @@
-const displayElement = document.querySelector(".display");
-let arr = 0;
-let newArr = 0;
-let equals = document.querySelector('[data-operator="="]');
+const displayElement = document.getElementById("display-el");
+const numberKeysNodeList = document.querySelectorAll(".keys");
+const operatorKeysNodeList = document.querySelectorAll(".operator");
+const clear = document.getElementById("clear");
 
-equals.addEventListener("click", (e) => {
-  newArr = arr;
+// Testing Stage => Things being used to test nothing more
+let numbers = [];
+let numberConcat;
 
-  let string = newArr.split("");
-  string.forEach((n, index) => {
-    if (isNaN(n[index])) {
-      console.log(n);
-    }
+// End of testing state
+
+// Function clear calculator
+function clearDisplay() {
+  displayElement.textContent = "";
+}
+
+// Add eventlistener to clear button
+clear.addEventListener("click", clearDisplay);
+
+function handleEventListeners() {
+  number = 0;
+  // Lets loop over all number keys, then add an event listener to each one.
+  numberKeysNodeList.forEach((k) => {
+    // Add the listener to each element in the array/nodelist
+    k.addEventListener("click", (e) => {
+      let keyval = e.target.dataset.value;
+      number += keyval;
+    });
   });
 
-  switch (arr[1]) {
-    case "+":
-      displayElement.textContent = `${Number(arr[0]) + Number(arr[2])}`;
-      break;
-    case "-":
-      displayElement.textContent = `${Number(arr[0]) - Number(arr[2])}`;
-      break;
-    case "*":
-      displayElement.textContent = `${Number(arr[0]) * Number(arr[2])}`;
-      break;
-    case "/":
-      displayElement.textContent = `${Number(arr[0]) / Number(arr[2])}`;
-      break;
-    default:
-      break;
-  }
-  console.log(arr);
-});
-
-const keys = document.querySelectorAll(".keys");
-keys.forEach((el) => {
-  el.addEventListener("click", (e) => {
-    let clickedNumber;
-    let clickedOperator;
-    if (e.target.dataset.value) {
-      clickedNumber = Number(e.target.dataset.value);
-      arr += clickedNumber;
-      displayElement.textContent = arr;
-    } else if (e.target.dataset.operator && e.target.dataset.operator !== "=") {
-      clickedOperator = e.target.dataset.operator;
-      arr += clickedOperator;
-      displayElement.textContent = arr;
-    } else if (e.target.dataset.clear) {
-      displayElement.textContent = "Clear";
-      arr = 0;
-    }
+  // Loop over all operator keys and add an event listener to each key.
+  operatorKeysNodeList.forEach((o) => {
+    // Add event listener
+    o.addEventListener("click", (e) => {
+      let opval = e.target.dataset.operator;
+    });
   });
-});
+}
