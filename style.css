@@ -1,0 +1,56 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.calculator-app {
+  background-color: #000;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1em;
+  padding: 1em;
+}
+
+.display {
+  height: 4rem;
+  background-color: grey;
+  grid-column: 1/-1;
+  border-radius: 25px;
+  color: white;
+  font-family: monospace;
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.keys {
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: orange;
+  font-size: 1.25rem;
+  font-family: monospace;
+  color: white;
+  text-shadow: 1px 1px 5px black;
+  transition: all 0.25s ease-in-out;
+}
+
+.keys:is(:active, :hover, :focus) {
+  background-color: mediumseagreen;
+  box-shadow: inset 1px 0px 2px white;
+  cursor: pointer;
+  scale: 0.9;
+}
+
+.operator {
+  background-color: blueviolet;
+}
+
+.clear {
+  background-color: greenyellow;
+}
