@@ -2,6 +2,8 @@
 
 This is a simple calculator application built as a part of The Odin Project's curriculum. It's a web-based application that can perform basic arithmetic operations like addition, subtraction, multiplication, and division.
 
+https://calculator-kmdev.vercel.app/
+
 ## Features
 
 - Basic arithmetic operations: addition, subtraction, multiplication, division
@@ -32,6 +34,6 @@ This project is a part of [The Odin Project's](https://www.theodinproject.com/) 
 
 This project is open source and available under the [MIT License](LICENSE).
 
-# Author 
+# Author
 
-https://x.com/km_fsdev 
+https://x.com/km_fsdev
